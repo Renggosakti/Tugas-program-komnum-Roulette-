@@ -1,15 +1,15 @@
 # Tugas-program-komnum-Roulette
 # 📐 Integrasi Numerik Metode Trapesium (Trapesium Segmen Berganda)
 
-**Nama**: Arya Rangga Putra Pratama
+| Data       | Keterangan              |
+|------------|-------------------------|
+| **Nama**   | Arya Rangga Putra Pratama|
+| **NRP**    | 5025241072              |
+| **Kelas**  | Komnum A                |
+| **Kelompok** | A-16                   |
+| **Soal**   | Nomor 40                |  
 
-**NRP**: 5025241072
-
-**Kelas**: Komnum A
-
-**Soal**: Nomor 40
-
-Repositori ini berisi implementasi Python untuk menghitung luas di bawah kurva fungsi menggunakan **metode trapesium segmen berganda**, serta membandingkannya dengan hasil integral eksak menggunakan `sympy`.
+Sesuai dengan soal nomor 40, ini adalah laporan hasil pengerjaan saya yang berisi implementasi Python untuk menghitung luas di bawah kurva fungsi menggunakan **metode trapesium segmen berganda**, serta membandingkannya dengan hasil integral eksak menggunakan `sympy`.
 
 ---
 
@@ -214,6 +214,6 @@ Error (%) = |(6710476.8 - 7343508.0) / 6710476.8| * 100 = 9.43%
 
 ## 📘 Catatan Akhir
 
-* Program ini sesuai dengan soal nomor 40 kelas Komnum A.
+* Program ini sesuai dengan soal nomor 40 kelas Komnum A Menggunakan library seperti numpy dan sympy.
 * Dapat dimodifikasi untuk jumlah segmen yang lebih banyak atau fungsi yang berbeda.
-* Dokumentasi ini mencakup seluruh proses perhitungan dan analisis galat.
+* Mencakup seluruh proses perhitungan dan analisis galat.
