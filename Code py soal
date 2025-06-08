@@ -1,0 +1,56 @@
+import numpy as np
+import sympy as sp
+
+class TrapeziumIntegrator:
+    def __init__(self, func, a, b):
+        self.func = func
+        self.a = a
+        self.b = b
+    
+    def evaluate_function(self, x_points):
+        return np.array([self.func(x) for x in x_points])
+    
+    def calculate_integral(self, n_segments):
+        h = (self.b - self.a) / n_segments
+        x_points = np.linspace(self.a, self.b, n_segments + 1)
+        y_points = self.evaluate_function(x_points)
+        luas = h * (0.5 * y_points[0] + 0.5 * y_points[-1] + np.sum(y_points[1:-1]))
+        return x_points, y_points, round(luas, 2)
+    
+    def calculate_true_integral(self):
+        x = sp.Symbol('x')
+        true_integral = sp.integrate(self.func(x), (x, self.a, self.b))
+        return float(true_integral.evalf())
+    
+    def calculate_error(self, luas_numerik, luas_eksak):
+        error = abs((luas_eksak - luas_numerik) / luas_eksak) * 100
+        return round(error, 2)
+
+def main():
+    def f(x):
+        return 3 * x**5 - 8 * x**4
+    
+    a, b = 4, 16
+    n_segments = 4
+    
+    integrator = TrapeziumIntegrator(f, a, b)
+    x_points, y_points, luas_numerik = integrator.calculate_integral(n_segments)
+    luas_eksak = integrator.calculate_true_integral()
+    error = integrator.calculate_error(luas_numerik, luas_eksak)
+    
+    print("=== Langkah 1: Evaluasi Fungsi ===")
+    for x, y in zip(x_points, y_points):
+        print(f"f({int(x)}) = {round(y, 2)}")
+    
+    print("\n=== Langkah 2: Hitung Luas (Trapezium) ===")
+    print(f"h = (16-4)/4 = 3")
+    print(f"Luas = 3 * [0.5*f(4) + 0.5*f(16) + f(7) + f(10) + f(13)]")
+    print(f"      = 3 * [0.5*{round(y_points[0], 2)} + 0.5*{round(y_points[-1], 2)} + {round(y_points[1], 2)} + {round(y_points[2], 2)} + {round(y_points[3], 2)}]")
+    print(f"      = {luas_numerik}")
+    
+    print("\n=== Langkah 3: Hitung Error ===")
+    print(f"Luas Eksak (Sympy) = {round(luas_eksak, 2)}")
+    print(f"Error (%) = |({round(luas_eksak, 2)} - {luas_numerik}) / {round(luas_eksak, 2)}| * 100 = {error}%")
+
+if __name__ == "__main__":
+    main()
