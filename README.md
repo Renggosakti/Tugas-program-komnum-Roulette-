@@ -2,8 +2,11 @@
 # 📐 Integrasi Numerik Metode Trapesium (Trapesium Segmen Berganda)
 
 **Nama**: Arya Rangga Putra Pratama
+
 **NRP**: 5025241072
+
 **Kelas**: Komnum A
+
 **Soal**: Nomor 40
 
 Repositori ini berisi implementasi Python untuk menghitung luas di bawah kurva fungsi menggunakan **metode trapesium segmen berganda**, serta membandingkannya dengan hasil integral eksak menggunakan `sympy`.
